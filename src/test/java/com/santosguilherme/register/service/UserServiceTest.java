@@ -4,6 +4,8 @@ import com.santosguilherme.register.domain.User;
 import com.santosguilherme.register.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -33,6 +35,18 @@ class UserServiceTest {
 
 		Mockito.verify(userRepository).save(userBeforeSave);
 		Assertions.assertEquals(userAfterSave, user);
+	}
+
+	@ParameterizedTest
+	@ValueSource(ints = {2010, 1960})
+	public void should_return_error_when_age_is_invalid(Integer year) {
+
+		User user = new User(null, "Guilherme", "1234", LocalDate.of(year, 1, 31));
+
+		var exception = Assertions.assertThrows(RuntimeException.class, () -> userService.register(user));
+
+		Mockito.verifyNoInteractions(userRepository);
+		Assertions.assertEquals("idade não permitida", exception.getMessage());
 	}
 
 }
