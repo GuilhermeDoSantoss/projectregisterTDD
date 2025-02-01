@@ -1,6 +1,7 @@
 package com.santosguilherme.register.controller;
 
 import ch.qos.logback.core.joran.spi.HttpUtil;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
@@ -28,7 +29,7 @@ public class UserControllerTest {
     private ObjectMapper objectMapper;
 
     @Test
-    public void should_return_username_length_error(){
+    public void should_return_username_length_error() throws Exception {
         var request = new UserRequest("Jo","1234", LocalDate.now());
         mockmvc.perform(
                 post("/api/v1/user")
