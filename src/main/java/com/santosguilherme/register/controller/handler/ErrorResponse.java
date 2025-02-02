@@ -1,4 +1,4 @@
-package com.santosguilherme.register.controller;
+package com.santosguilherme.register.controller.handler;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

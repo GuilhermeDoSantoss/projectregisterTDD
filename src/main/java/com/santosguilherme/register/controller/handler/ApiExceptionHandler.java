@@ -1,4 +1,4 @@
-package com.santosguilherme.register.controller;
+package com.santosguilherme.register.controller.handler;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;

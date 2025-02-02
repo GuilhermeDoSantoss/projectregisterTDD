@@ -1,4 +1,4 @@
-package com.santosguilherme.register.controller;
+package com.santosguilherme.register.controller.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -22,6 +22,6 @@ public class UserRequest {
     @Size(min = 4, max = 6, message = "O tamanho deve ser entra 4 e 6")
     private String password;
 
-    @NotNull
+    @NotNull(message = "O campo de data não pode ser nulo")
     private LocalDate dateOfBirth;
 }

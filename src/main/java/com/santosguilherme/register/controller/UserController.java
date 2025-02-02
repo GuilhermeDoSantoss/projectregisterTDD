@@ -1,5 +1,7 @@
 package com.santosguilherme.register.controller;
 
+import com.santosguilherme.register.controller.mapper.UserMapper;
+import com.santosguilherme.register.controller.request.UserRequest;
 import com.santosguilherme.register.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
